@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>savetimewin</title>
+		<style>
+			:root {
+				--line: #b3b3b3;
+				--text: #111;
+				--muted: #555;
+			}
+
+			*,
+			*::before,
+			*::after {
+				box-sizing: border-box;
+			}
+
+			html,
+			body {
+				height: 100%;
+				margin: 0;
+				overflow: hidden; /* hard no-scroll */
+				color: var(--text);
+				background: #fff;
+				font: 16px/1.4 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+			}
+
+			.page {
+				height: 100dvh; /* stable on mobile browser UI */
+				height: 100vh;
+				display: grid;
+				grid-template-rows: 1fr 3fr; /* top = 25%, bottom = 75% */
+			}
+
+			.about {
+				display: grid;
+				align-content: center;
+				padding: clamp(16px, 3vw, 40px);
+				border-bottom: 1px solid var(--line); /* horizontal grey line */
+			}
+
+			.about h1 {
+				margin: 0;
+				font-size: clamp(22px, 3.2vw, 34px);
+				letter-spacing: 0.02em;
+			}
+
+			.about p {
+				margin: 8px 0 0;
+				max-width: 72ch;
+				color: var(--muted);
+			}
+
+			.columns {
+				display: grid;
+				grid-template-columns: 1fr 1fr 1fr;
+				min-height: 0; /* prevents grid overflow */
+			}
+
+			.col {
+				padding: clamp(14px, 2.5vw, 28px);
+				min-width: 0;
+				min-height: 0;
+				display: grid;
+				align-content: start;
+				gap: 10px;
+			}
+
+			.col + .col {
+				border-left: 1px solid var(--line); /* vertical grey lines */
+			}
+
+			.col h2 {
+				margin: 0;
+				font-size: 14px;
+				letter-spacing: 0.14em;
+				text-transform: uppercase;
+				color: var(--muted);
+			}
+
+			.col p {
+				margin: 0;
+			}
+
+			.video {
+				width: 100%;
+				aspect-ratio: 16 / 9;
+				min-height: 0;
+			}
+
+			.video iframe {
+				width: 100%;
+				height: 100%;
+				border: 0;
+				display: block;
+			}
+
+			/* Tight screens: keep everything visible without scrolling */
+			@media (max-height: 520px) {
+				.about p {
+					display: none;
+				}
+			}
+		</style>
+	</head>
+
+	<body>
+		<main class="page">
+			<section class="about" aria-label="About me">
+				<div>
+					<h1>About Me</h1>
+					<p>
+						Add a short intro here (who you are, what you build, and what you’re
+						looking for).
+					</p>
+				</div>
+			</section>
+
+			<section class="columns" aria-label="Main columns">
+				<section class="col" aria-label="Column one">
+					<h2>Zap</h2>
+					<div class="video" aria-label="Featured video">
+						<iframe
+							src="https://www.youtube.com/embed/Szx1nL-O3BQ"
+							title="YouTube video player"
+							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+							referrerpolicy="strict-origin-when-cross-origin"
+							allowfullscreen
+						></iframe>
+					</div>
+				</section>
+				<section class="col" aria-label="Column two">
+					<h2>Column 2</h2>
+					<p>Skills / tools.</p>
+				</section>
+				<section class="col" aria-label="Column three">
+					<h2>Column 3</h2>
+					<p>Links / contact.</p>
+				</section>
+			</section>
+		</main>
+	</body>
+</html>
