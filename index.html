@@ -21,17 +21,18 @@
 			body {
 				height: 100%;
 				margin: 0;
-				overflow: hidden; /* hard no-scroll */
+				overflow-x: hidden;
+				overflow-y: auto;
 				color: var(--text);
 				background: #fff;
 				font: 16px/1.4 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
 			}
 
 			.page {
-				height: 100dvh; /* stable on mobile browser UI */
-				height: 100vh;
+				min-height: 100dvh; /* stable on mobile browser UI */
+				min-height: 100vh;
 				display: grid;
-				grid-template-rows: 1fr 3fr; /* top = 25%, bottom = 75% */
+				grid-template-rows: 20vh auto; /* top ~20% of viewport, rest can scroll */
 			}
 
 			.about {
@@ -60,13 +61,14 @@
 			}
 
 			.col {
-				padding: clamp(14px, 2.5vw, 28px);
+				padding: clamp(8px, 1.6vw, 18px);
 				min-width: 0;
 				min-height: 0;
 				display: grid;
 				align-content: start;
-				gap: 10px;
+				gap: 8px;
 			}
+
 
 			.col + .col {
 				border-left: 1px solid var(--line); /* vertical grey lines */
@@ -80,17 +82,66 @@
 				color: var(--muted);
 			}
 
+			.zap-title {
+				text-align: center;
+				color: var(--line);
+			}
+
+			.zap-details {
+				margin-top: 20px;
+				color: var(--muted);
+				font-size: 11px;
+				line-height: 1.3;
+			}
+
+			.zap-details p {
+				margin: 0;
+			}
+
+			.zap-details .label {
+				color: var(--text);
+				font-weight: 600;
+			}
+
+			.zap-details ul {
+				margin: 6px 0 0;
+				padding-left: 18px;
+			}
+
+			.zap-details li {
+				margin: 2px 0;
+			}
+
+			.zap-details a {
+				color: var(--text);
+				text-decoration: underline;
+				word-break: break-word;
+			}
+
+			.zap-details .repo-link {
+				margin-top: 8px;
+			}
+
 			.col p {
 				margin: 0;
 			}
 
 			.video {
 				width: 100%;
-				aspect-ratio: 16 / 9;
+				position: relative;
 				min-height: 0;
+				background: #000;
+			}
+
+			.video::before {
+				content: "";
+				display: block;
+				padding-top: 56.25%; /* 16:9 */
 			}
 
 			.video iframe {
+				position: absolute;
+				inset: 0;
 				width: 100%;
 				height: 100%;
 				border: 0;
@@ -120,15 +171,34 @@
 
 			<section class="columns" aria-label="Main columns">
 				<section class="col" aria-label="Column one">
-					<h2>Zap</h2>
+					<h2 class="zap-title">Zap</h2>
 					<div class="video" aria-label="Featured video">
 						<iframe
-							src="https://www.youtube.com/embed/Szx1nL-O3BQ"
+							src="https://www.youtube-nocookie.com/embed/Szx1nL-O3BQ"
 							title="YouTube video player"
-							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen"
 							referrerpolicy="strict-origin-when-cross-origin"
 							allowfullscreen
 						></iframe>
+					</div>
+					<div class="zap-details" aria-label="Zap description and implementation">
+						<p>
+							<span class="label">Description:</span><br />
+							Zap is minimalist survival shooter built in Pygame: you pilot a neon pink circle in an 800×600 arena, dodge procedurally spawned squares that constantly home toward the screen center, and fire 8‑way lasers with WASD/ZQECX inputs to clear space. The game tracks how long you last, ramps spawn rate and speed as minutes pass, and offers a simple start screen plus a “Try Again?” game-over loop so you can chase longer survivals.
+						</p>
+						<p style="margin-top: 8px;">
+							<span class="label">Implementation:</span>
+						</p>
+						<ul>
+							<li>Implemented the core game loop and state flow (start screen → gameplay → game over → retry).</li>
+							<li>Built procedural enemy spawning with simple “home toward center” movement and difficulty ramp over time.</li>
+							<li>Added player movement, 8‑way shooting, projectile/enemy updates, and collision detection for hits + death.</li>
+							<li>Created basic UI elements (start button, game-over prompt) and an on-screen survival timer.</li>
+						</ul>
+						<p class="repo-link">
+							<span class="label">Link to the Repository:</span>
+							<a href="https://github.com/savetimewin/zap" target="_blank" rel="noreferrer">https://github.com/savetimewin/zap</a>
+						</p>
 					</div>
 				</section>
 				<section class="col" aria-label="Column two">
