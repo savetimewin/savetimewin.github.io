@@ -277,7 +277,7 @@
 						</ul>
 						<p style="margin-top: 12px;">
 							<span class="label">Playable:</span><br />
-							<em>Play inline below; if it doesn’t load, use the direct link.<br />
+							<em>Play inline below; if it doesn’t load, use the Direct Link.<br />
 							Click the blue fullscreen button, located at bottom right of the player, <br />for the best experience.</em>
 						</p>
 						<div class="game-wrapper" aria-label="Play Magnet Bomber inline">
@@ -310,6 +310,38 @@
 							referrerpolicy="strict-origin-when-cross-origin"
 							allowfullscreen
 						></iframe>
+					</div>
+					<div class="zap-details" aria-label="Fish Fish description and implementation">
+						<p>
+							<span class="label">Team:</span> 6 people &nbsp;|&nbsp; <span class="label">Duration:</span> 3 months
+						</p>
+						<p style="margin-top: 8px;">
+							<span class="label">Description:</span><br />
+							Fish Fish is a roguelike dungeon crawler where combat is reimagined as fishing: you cast a rod (charge by holding left click), hook marine enemies, and reel them in while dodging attacks. Runs progress through procedurally selected ocean rooms with escalating difficulty, a coin economy, and shop upgrades that improve rod range, reel speed, and survivability.
+						</p>
+						<p style="margin-top: 8px;">
+							<span class="label">Implementation:</span>
+						</p>
+						<ul>
+							<li>Implemented the core fishing-rod combat loop: charge-to-cast distance/arc, hook detection, and reeling interactions that turn positioning/timing into the primary skill test.</li>
+							<li>Built a suite of enemy fish behaviors with distinct movement/attack patterns (e.g., dash, shields/deflections, and varied aggression) to diversify room encounters.</li>
+							<li>Integrated progression systems around procedural room flow and a coin-driven shop/upgrade loop so each run produces different builds and risk/reward choices.</li>
+							<li>Instrumented playtest analytics by logging gameplay events from Unity via UnityWebRequest to Firebase Realtime Database and a Google Apps Script endpoint that appends events into Google Sheets for dashboards and tuning.</li>
+						</ul>
+						<p style="margin-top: 12px;">
+							<span class="label">Future implementation considered for the improvement of the game:</span>
+						</p>
+						<ul>
+							<li>Add different types of fish e.g. puffer fish that shoots spike projectiles in all directions that player has to dodge. In general, even other types of fish that move or behave differently.</li>
+							<li>Add various player upgrades like multi-directional bobber launch, bobber hitting the wall causing angle of reflection with elastic collision.</li>
+							<li>Refine and tweak the level design and its components by iterating on playtesting feedback—for example, adjusting spike/pit sizes and revising enemy placement, spawn points, and trap locations.</li>
+							<li>Implement audio effects and background music to enhance the overall gaming experience.</li>
+							<li>Add visual effects such as particle systems for water splashes, hook impacts, and enemy defeats to make the game more engaging.</li>
+						</ul>
+						<p class="repo-link">
+							<span class="label">Link to the Repository:</span>
+							<a href="https://github.com/savetimewin/fish-fish" target="_blank" rel="noreferrer">https://github.com/savetimewin/fish-fish</a>
+						</p>
 					</div>
 				</section>
 			</section>
