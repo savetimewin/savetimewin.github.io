@@ -37,9 +37,11 @@
 
 			.about {
 				display: grid;
+				grid-template-columns: 1fr 1fr 1fr;
 				align-content: center;
 				padding: clamp(16px, 3vw, 40px);
 				border-bottom: 1px solid var(--line); /* horizontal grey line */
+				gap: clamp(16px, 3vw, 40px);
 			}
 
 			.about h1 {
@@ -50,8 +52,15 @@
 
 			.about p {
 				margin: 8px 0 0;
-				max-width: 72ch;
 				color: var(--muted);
+			}
+
+			.about-photo {
+				width: 150px;
+				height: 150px;
+				float: left;
+				margin-right: 12px;
+				margin-bottom: 4px;
 			}
 
 			.columns {
@@ -186,10 +195,42 @@
 		<main class="page">
 			<section class="about" aria-label="About me">
 				<div>
-					<h1>About Me</h1>
+					<h1>About Me</h1> 
+					
 					<p>
-						Add a short intro here (who you are, what you build, and what you’re
-						looking for).
+						<img src="brian_face.jpeg" alt="Won Suk (Brian) Lee" class="about-photo" />
+						Hi, my name is  Won Suk (Brian) Lee.
+						<br />
+						I have graduated from University of Southern California with a Master of Science degree with a major in Computer Science.
+						<br />
+						I am pursuing a career in the game development industry.
+						<br />
+						These projects below showcase my skills in game development, including programming, design, and implementation. Feel free to explore them!
+						<br />
+						Thank you for visiting my portfolio site!
+					</p>
+				</div>
+				<div>
+					<h1>Contact</h1>
+					<p>
+						<br />
+						Email: wlee.techjob@gmail.com
+						<br />
+						<br />
+						LinkedIn: <a href="https://www.linkedin.com/in/brianwslee/" target="_blank" rel="noreferrer">https://www.linkedin.com/in/brianwslee/</a>
+					</p>
+				</div>
+				<div>
+					<h1>Project Background</h1>
+					<p>
+						
+						These projects were created as part of my coursework and personal development in game design and programming.
+						<br />
+						<br />
+						They demonstrate my ability to work both independently and collaboratively in a team setting.
+						<br />
+						<br />
+						I am passionate about creating engaging and innovative gaming experiences, and I am excited to continue developing my skills in this field.
 					</p>
 				</div>
 			</section>
